@@ -8,6 +8,9 @@
     <label for="text">Text</label>
     <textarea name="text"><?php echo $news_item['text'] ?></textarea><br />
 
+    <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/><br />
+    <input type="hidden" name="slug" value="<?php echo $news_item['slug'] ?>"/><br />
+
     <input type="submit" name="submit" value="Update news item" />
 
 </form>

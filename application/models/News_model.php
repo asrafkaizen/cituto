@@ -35,16 +35,17 @@ class News_model extends CI_Model {
 
         public function update_news($slug = FALSE)
         {
-            echo '<script>alert("slug='.$slug.'")</script>';
-            echo '<script>alert("id='.$id.'")</script>';
+            $id = $this->input->post('id');
+            $slug = $this->input->post('slug');
+            // echo '<script>alert("slug='.$slug.'")</script>';
+            // echo '<script>alert("id='.$id.'")</script>';
 
             $data = array(
                 'title' => $this->input->post('title'),
-                'slug' => $slug,
                 'text' => $this->input->post('text')
             );
 
             $this->db->where('id',$id);
-            return $this->db->update('news', $data, ['slug' => $slug]);
+            return $this->db->update('news', $data);
         }
 }

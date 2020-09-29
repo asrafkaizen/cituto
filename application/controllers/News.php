@@ -73,14 +73,13 @@ class News extends CI_Controller {
 
             if ($this->form_validation->run() === FALSE)
             {
-                echo '<script>alert("enter update method1")</script>';
                 $this->load->view('templates/header', $data);
                 $this->load->view('news/update', $slug);
                 $this->load->view('templates/footer');
             }
             else
             {
-                echo '<script>alert("enter update method 2")</script>';
+                //echo '<script>alert("enter update method 2")</script>';
 
                 $this->news_model->update_news();
                 $this->load->view('news/success.php'); //goto show news item

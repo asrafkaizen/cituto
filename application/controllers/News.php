@@ -55,7 +55,9 @@ class News extends CI_Controller {
             else
             {
                 $this->news_model->set_news();
-                $this->load->view('news/success.php'); //should show success but for now, show news list
+                $this->load->view('templates/header', $data);
+                $this->load->view('news/success.php'); 
+                $this->load->view('templates/footer');
             }
         }
 
@@ -81,9 +83,10 @@ class News extends CI_Controller {
             else
             {
                 //echo '<script>alert("enter update method 2")</script>';
-
                 $this->news_model->update_news();
-                $this->load->view('news/success.php'); //goto show news item
+                $this->load->view('templates/header', $data);
+                $this->load->view('news/success.php'); 
+                $this->load->view('templates/footer');
             }
         }
 
@@ -107,7 +110,9 @@ class News extends CI_Controller {
             else
             {
                 $this->news_model->delete_news();
-                $this->load->view('news/success.php'); //goto show news item
+                $this->load->view('templates/header', $data);
+                $this->load->view('news/success.php'); 
+                $this->load->view('templates/footer');
             }
         }
 

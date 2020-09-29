@@ -1,16 +1,16 @@
-<h2><?php echo $title; ?></h2>
 <?php echo validation_errors(); ?>
 
 <?php echo form_open('news/update/'.$news_item['slug']); ?>
+<div class=container>
     <label for="title">Title</label>
-    <input type="text" name="title" value="<?php echo $news_item['title'] ?>"/><br />
+    <input class="form-control" type="text" name="title" value="<?php echo $news_item['title'] ?>"/><br />
 
     <label for="text">Text</label>
-    <textarea name="text"><?php echo $news_item['text'] ?></textarea><br />
+    <textarea class="form-control" name="text"><?php echo $news_item['text'] ?></textarea><br />
 
-    <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/><br />
-    <input type="hidden" name="slug" value="<?php echo $news_item['slug'] ?>"/><br />
+    <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/>
+    <input type="hidden" name="slug" value="<?php echo $news_item['slug'] ?>"/>
 
-    <input type="submit" name="submit" value="Update news item" />
-
+    <input class="btn btn-primary" type="submit" name="submit" value="Update news item" />
+</div>
 </form>

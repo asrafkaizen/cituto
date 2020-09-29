@@ -48,4 +48,13 @@ class News_model extends CI_Model {
             $this->db->where('id',$id);
             return $this->db->update('news', $data);
         }
+
+
+        public function delete_news($slug = FALSE)
+        {
+            $id = $this->input->post('id');
+            $slug = $this->input->post('slug');
+            $this->db->where('id', $id);
+            return $this->db->delete('news');
+        }
 }

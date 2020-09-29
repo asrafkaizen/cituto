@@ -20,6 +20,7 @@ class News extends CI_Controller {
 
         public function view($slug = NULL)
         {
+
             $data['news_item'] = $this->news_model->get_news($slug);
 
             if (empty($data['news_item']))
@@ -82,6 +83,30 @@ class News extends CI_Controller {
                 //echo '<script>alert("enter update method 2")</script>';
 
                 $this->news_model->update_news();
+                $this->load->view('news/success.php'); //goto show news item
+            }
+        }
+
+        public function delete($slug = NULL)
+        {
+            $data['news_item'] = $this->news_model->get_news($slug);
+
+            $this->load->helper('form');
+            $this->load->library('form_validation');
+
+            $data['title'] = 'Confirm delete this item';
+
+            $this->form_validation->set_rules('id', 'Id', 'required');
+
+            if ($this->form_validation->run() === FALSE)
+            {
+                $this->load->view('templates/header', $data);
+                $this->load->view('news/delete', $slug);
+                $this->load->view('templates/footer');
+            }
+            else
+            {
+                $this->news_model->delete_news();
                 $this->load->view('news/success.php'); //goto show news item
             }
         }

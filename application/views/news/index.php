@@ -8,5 +8,6 @@
         </div>
         <p><a href="<?php echo site_url('news/'.$news_item['slug']); ?>">View article</a></p>
         <p><a href="<?php echo site_url('news/update/'.$news_item['slug']); ?>">Edit article</a></p>
+        <p><a href="<?php echo site_url('news/delete/'.$news_item['slug']); ?>">Delete article</a></p>
 
 <?php endforeach; ?>
